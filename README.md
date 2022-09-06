@@ -1,4 +1,4 @@
-# django-calendar
+# Agendamento-Garagem
 Full calendar built using Django. Tutorial part i [here](https://www.huiwenteo.com/normal/2018/07/24/django-calendar.html) and part ii [here](https://www.huiwenteo.com/normal/2018/07/29/django-calendar-ii.html)! :)
 
 # Usage
