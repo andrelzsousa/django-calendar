@@ -27,7 +27,9 @@ body {
   margin: auto;
 }
 
-.form input, .form select, .form textarea {
+.form input,
+.form select,
+.form textarea {
   border-radius: 5px;
   border: 1px solid #17a2b8;
   outline: none;
@@ -48,7 +50,8 @@ body {
   font-size: 13px;
 }
 
-.calendar tr, .calendar td {
+.calendar tr,
+.calendar td {
   border: 1px solid black;
 }
 
@@ -79,4 +82,8 @@ ul {
 
 a {
   color: #17a2b8;
+}
+
+.informacao {
+  margin: 30px;
 }

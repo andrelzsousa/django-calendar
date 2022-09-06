@@ -1,13 +1,21 @@
 {% extends 'cal/base.html' %}
 
 {% block title %}
-Event
+Agendamento: {{evento.title}}
 {% endblock %}
 
 {% block content %}
-<h2><strong>Nome do agendamento: </strong>{{evento.title}}</h2>
-<h2><strong>Descrição: </strong>{{evento.description}}</h2>
-<h2><strong>Data e hora: </strong>{{evento.start_time}}</h2>
+<div class="clearfix">
+    <a class="btn btn-info left" href="{% url 'cal:calendar' %}"> Calendar </a>
+</div>
 
-<a href="{% url 'cal:event_delete' evento.id%}">Deletar evento</a>
+<div class="informacao" style="margin: 15px;">
+    <h2><strong>Nome do agendamento: </strong>{{evento.title}}</h2>
+    <h2><strong>Descrição: </strong>{{evento.description}}</h2>
+    <h2><strong>Data e hora: </strong>{{evento.start_time}}</h2>
+
+    <a href="{% url 'cal:event_delete' evento.id%}">Deletar evento</a>
+    <br>
+    <a href="{% url 'cal:event_edit' evento.id%}">Editar evento</a>
+</div>
 {% endblock content %}
