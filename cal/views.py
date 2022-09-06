@@ -1,10 +1,11 @@
 from datetime import datetime, timedelta, date
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse, HttpResponseRedirect
 from django.views import generic
 from django.urls import reverse
 from django.utils.safestring import mark_safe
 import calendar
+from . models import Event
 
 from .models import *
 from .utils import Calendar
@@ -59,4 +60,19 @@ def event(request, event_id=None):
         return HttpResponseRedirect(reverse('cal:calendar'))
     return render(request, 'cal/event.html', {'form': form})
 
-# def delete_event(request, event_id=None):
+def info_event(request, pk):
+    evento = Event.objects.get(id=pk)
+    context = {'evento': evento}
+    return render(request, 'cal/info.html', context)
+
+def delete_event(request, pk):
+    evento = Event.objects.get(id=pk)
+    context = {'evento': evento}
+
+    if request.method == 'POST':
+        evento.delete()
+        return redirect('cal:calendar')
+    
+    return render(request, 'cal/delete.html', context)
+    return HttpResponse('deus me ajuda') 
+    
